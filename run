@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+set -e
+tmpFile=$(mktemp)
+go build -race -o "$tmpFile" $(dirname "$0")/cmd/*.go
+exec "$tmpFile" "$@"
